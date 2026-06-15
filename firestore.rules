@@ -1,0 +1,10 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 全員が読める・書ける（開発中の設定）
+    // ★ 将来的にパスワード保護を追加する場合はここを変更します
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
